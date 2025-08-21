@@ -1,165 +1,198 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Launching Soon</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copiate - Launching Soon</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {
-      margin:0;
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      font-family:'Poppins', sans-serif;
-      background: url("Copiata.png") no-repeat center center/300px, linear-gradient(135deg, #1e3c72, #2a5298);
-      background-size:200px, cover;
-      background-attachment: fixed;
-      color:white;
-      text-align:center;
-      overflow:hidden;
-    }
-    h1 {
-      font-size:2.2rem;
-      margin-bottom:10px;
-      background: linear-gradient(90deg,#ff4b1f,#ff9068,#8e2de2,#4a00e0,#00c9ff,#92fe9d);
-      background-size:400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientMove 6s infinite linear, pulse 2s infinite ease-in-out;
-    }
-    h2 {
-      margin-bottom:25px;
-      font-size:1.3rem;
-      color:#f5f5f5;
-      text-shadow:0 0 10px rgba(255,255,255,0.5);
-      animation: floatText 4s infinite ease-in-out;
-    }
-    form {
-      display:flex;
-      justify-content:center;
-      margin-top:15px;
-      animation: fadeInUp 1.5s ease;
-    }
-    input[type="email"] {
-      padding: 12px 15px;
-      border:none;
-      border-radius: 30px 0 0 30px;
-      width: 240px;
-      outline:none;
-      font-size:1rem;
-      box-shadow:0 0 8px rgba(0,0,0,0.2);
-    }
-    button {
-      padding: 12px 20px;
-      border:none;
-      border-radius: 0 30px 30px 0;
-      background: linear-gradient(45deg,#ff4b1f,#8e2de2);
-      color:white;
-      font-weight:bold;
-      font-size:1rem;
-      cursor:pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    button:hover {
-      transform:scale(1.05);
-      box-shadow:0 0 20px rgba(255,255,255,0.4);
-      background: linear-gradient(45deg,#00c9ff,#92fe9d);
-    }
-    #msg {
-      margin-top:25px;
-      font-size:1.1rem;
-      font-weight:bold;
-      color:#92fe9d;
-      opacity:0;
-      animation: fadeIn 2s forwards;
-    }
+body {
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  font-family:'Poppins', sans-serif;
+  background: url("Copiata.png") no-repeat center center/300px, linear-gradient(135deg, #1e3c72, #2a5298);
+  background-size:cover,cover;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+  position:relative;
+}
 
-    /* Animations */
-    @keyframes gradientMove {
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-    @keyframes pulse {
-      0%,100%{text-shadow:0 0 10px rgba(255,255,255,0.3);}
-      50%{text-shadow:0 0 25px rgba(255,255,255,0.8);}
-    }
-    @keyframes floatText {
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-    }
-    @keyframes fadeIn {
-      to {opacity:1; transform:scale(1.05);}
-    }
-    @keyframes fadeInUp {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-  </style>
+/* Overlay light effect */
+body::after {
+  content:"";
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  background: rgba(255,255,255,0.1);
+  pointer-events:none;
+}
+
+/* Animated Heading */
+h1 {
+  font-size:2.5rem;
+  font-weight:700;
+  margin-bottom:10px;
+  background: linear-gradient(90deg,#ff4b1f,#ff9068,#8e2de2,#4a00e0,#00c9ff,#92fe9d);
+  background-size:400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s infinite linear, pulse 2s infinite ease-in-out;
+  text-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Floating Subheading */
+h2 {
+  margin-bottom:30px;
+  font-size:1.3rem;
+  text-shadow:0 0 10px rgba(255,255,255,0.5);
+  animation: floatText 4s infinite ease-in-out;
+}
+
+/* Form */
+form {
+  display:flex;
+  animation: fadeInUp 1.5s ease;
+}
+input[type="email"] {
+  padding: 12px 15px;
+  border:none;
+  border-radius: 30px 0 0 30px;
+  width: 250px;
+  outline:none;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+button {
+  padding: 12px 25px;
+  border:none;
+  border-radius: 0 30px 30px 0;
+  background: linear-gradient(45deg,#ff4b1f,#8e2de2);
+  color:white;
+  font-weight:bold;
+  font-size:1rem;
+  cursor:pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+button:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(255,255,255,0.5);
+  background: linear-gradient(45deg,#00c9ff,#92fe9d);
+}
+
+/* Message */
+#msg {
+  margin-top:25px;
+  font-size:1.1rem;
+  font-weight:bold;
+  color:#92fe9d;
+  opacity:0;
+  animation: fadeIn 2s forwards;
+}
+
+/* Animations */
+@keyframes gradientMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+@keyframes pulse {
+  0%,100%{text-shadow:0 0 10px rgba(255,255,255,0.3);}
+  50%{text-shadow:0 0 30px rgba(255,255,255,0.8);}
+}
+@keyframes floatText {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+@keyframes fadeInUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+@keyframes fadeIn {
+  from {opacity:0; transform:scale(0.95);}
+  to {opacity:1; transform:scale(1);}
+}
+
+/* Floating particles */
+.particle {
+  position:absolute;
+  width:8px; height:8px;
+  background:rgba(255,255,255,0.7);
+  border-radius:50%;
+  animation: floatParticle linear infinite;
+}
+@keyframes floatParticle {
+  0% {transform:translateY(0) translateX(0); opacity:1;}
+  100% {transform:translateY(-500px) translateX(50px); opacity:0;}
+}
+</style>
 </head>
 <body>
-  <h1>Our website is under development 🤖</h1>
-  <h2>🚀 Launching Soon - Stay Tuned!</h2>
+<h1>Our website is under development 🤖</h1>
+<h2>🚀 Launching Soon - Stay Tuned!</h2>
 
-  <!-- Email subscription form -->
-  <form id="subscribeForm">
-    <input type="email" id="email" placeholder="Enter your email" required>
-    <button type="submit">Notify Me</button>
-  </form>
-  <div id="msg"></div>
+<form id="subscribeForm">
+<input type="email" id="email" placeholder="Enter your email" required>
+<button type="submit">Notify Me</button>
+</form>
+<div id="msg"></div>
 
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp } 
-      from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+<!-- Floating particles -->
+<script>
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=Math.random()*100+'%';
+  p.style.top=Math.random()*100+'%';
+  p.style.width=Math.random()*4+4+'px';
+  p.style.height=p.style.width;
+  p.style.animationDuration= (3+Math.random()*5)+'s';
+  document.body.appendChild(p);
+}
+</script>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyC5MGkOf5_0cF-xQrcA1PBSSvq6Y-AarSc",
-      authDomain: "ds-mart-888d2.firebaseapp.com",
-      projectId: "ds-mart-888d2",
-      storageBucket: "ds-mart-888d2.firebasestorage.app",
-      messagingSenderId: "108308848034",
-      appId: "1:108308848034:web:a8b3fe5e8784a4771e66fb",
-      measurementId: "G-KY618BJER7"
-    };
+<!-- Firebase -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+const firebaseConfig = {
+  apiKey: "AIzaSyD7JDM1A_i0FQF6LXQ_BM83etJHxaU9nMI",
+  authDomain: "copiate-1ea35.firebaseapp.com",
+  projectId: "copiate-1ea35",
+  storageBucket: "copiate-1ea35.firebasestorage.app",
+  messagingSenderId: "951371604085",
+  appId: "1:951371604085:web:6a141dea4f69f2abda983c",
+  measurementId: "G-P3RLMYNSKP"
+};
 
-    const form = document.getElementById("subscribeForm");
-    const emailInput = document.getElementById("email");
-    const msg = document.getElementById("msg");
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      if (!email) return;
+const form = document.getElementById("subscribeForm");
+const emailInput = document.getElementById("email");
+const msg = document.getElementById("msg");
 
-      try {
-        await addDoc(collection(db, "subscribers"), {
-          email: email,
-          timestamp: serverTimestamp()
-        });
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email=emailInput.value.trim();
+  if(!email) return;
 
-        // Hide the form
-        form.style.display = "none";
-
-        // Show success message with animation
-        msg.textContent = "✅ You’ll be notified once our profile is launched. Thank you!";
-        msg.style.opacity = "1";
-      } catch (error) {
-        console.error("Error adding document: ", error);
-        msg.textContent = "❌ Something went wrong. Try again!";
-        msg.style.opacity = "1";
-        msg.style.color = "tomato";
-      }
-    });
-  </script>
+  try{
+    await addDoc(collection(db,"subscribers"),{email,timestamp:serverTimestamp()});
+    form.style.display="none";
+    msg.textContent="✅ You’ll be notified once our profile is launched. Thank you!";
+    msg.style.opacity="1";
+  }catch(err){
+    console.error(err);
+    msg.textContent="❌ Something went wrong. Try again!";
+    msg.style.opacity="1";
+    msg.style.color="tomato";
+  }
+});
+</script>
 </body>
 </html>
