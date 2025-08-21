@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      height: 100vh;
+      width: 100%;
+      background: url("Copiata.png") no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      color:#fff;
+    }
+    body::before {
+      content:"";
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background: rgba(0,0,0,0.65); /* dark overlay for readability */
+      z-index:0;
+    }
+
+    h1,h2,#countdown,.subscribe,.socials {position:relative;z-index:2;}
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(90deg,#ff4b1f,#ff9068,#8e2de2,#4a00e0,#00c9ff,#92fe9d);
+      background-size:400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 8s infinite linear, pulse 2s infinite ease-in-out;
+      text-shadow:0 0 25px rgba(255,255,255,0.4);
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 10px;
+      animation: fadeIn 2s ease forwards, bounce 3s infinite alternate ease-in-out;
+    }
+
+    /* Countdown */
+    #countdown {
+      display:flex;
+      gap:20px;
+      margin:25px 0;
+      font-size:1.3rem;
+      font-weight:600;
+    }
+    #countdown div {
+      background: rgba(255,255,255,0.1);
+      padding:12px 18px;
+      border-radius:12px;
+      backdrop-filter: blur(6px);
+      box-shadow:0 0 15px rgba(0,0,0,0.4);
+    }
+
+    /* Subscribe box */
+    .subscribe input {
+      padding:10px 14px;
+      border:none;
+      border-radius:8px;
+      margin-right:10px;
+      outline:none;
+      width:220px;
+    }
+    .subscribe button {
+      padding:10px 16px;
+      border:none;
+      border-radius:8px;
+      background:#ff4b1f;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .subscribe button:hover {background:#ff9068;}
+
+    /* Social Icons */
+    .socials {
+      margin-top:20px;
+      display:flex;
+      gap:15px;
+      justify-content:center;
+    }
+    .socials a {
+      font-size:1.6rem;
+      color:#fff;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .socials a:hover {color:#00c9ff;transform:scale(1.2);}
+
+    /* Animations */
+    @keyframes gradientMove {
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+    @keyframes pulse {
+      0%,100%{text-shadow:0 0 10px rgba(255,255,255,0.2);}
+      50%{text-shadow:0 0 35px rgba(255,255,255,0.8);}
+    }
+    @keyframes fadeIn {
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+    @keyframes bounce {
+      0%{transform:translateY(0);}
+      100%{transform:translateY(-10px);}
+    }
+  </style>
+</head>
+<body>
+  <h1>🚧 THE WEBSITE IS UNDER CONSTRUCTION 🚧</h1>
+  <h2>🚀Launching Soon - Stay Tuned!</h2>
+
+  <!-- Countdown -->
+  <div id="countdown">
+    <div><span id="days">00</span> Days</div>
+    <div><span id="hours">00</span> Hrs</div>
+    <div><span id="minutes">00</span> Min</div>
+    <div><span id="seconds">00</span> Sec</div>
+  </div>
+
+  <!-- Subscribe Form -->
+  <div class="subscribe">
+    <input type="email" id="email" placeholder="Enter your email">
+    <button onclick="subscribe()">Notify Me</button>
+  </div>
+
+  <script>
+    // Countdown target date
+    const launchDate = new Date("2025-12-31 00:00:00").getTime();
+
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const gap = launchDate - now;
+
+      const d = Math.floor(gap/(1000*60*60*24));
+      const h = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+      const m = Math.floor((gap%(1000*60*60))/(1000*60));
+      const s = Math.floor((gap%(1000*60))/1000);
+
+      document.getElementById("days").innerText = d;
+      document.getElementById("hours").innerText = h;
+      document.getElementById("minutes").innerText = m;
+      document.getElementById("seconds").innerText = s;
+    }
+    setInterval(updateCountdown,1000);
+
+    // Subscribe alert
+    function subscribe(){
+      const email=document.getElementById("email").value;
+      if(email){
+        alert("Thank you! We will notify you at: "+email);
+        document.getElementById("email").value="";
+      } else {
+        alert("Please enter a valid email.");
+      }
+    }
+  </script>
+</body>
+</html>
